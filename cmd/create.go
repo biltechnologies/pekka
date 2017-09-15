@@ -3,7 +3,6 @@ package cmd
 import (
 	"os"
 	"path/filepath"
-	"syscall"
 
 	prompt "gopkg.in/distillerytech/prompt.v1"
 
@@ -61,11 +60,10 @@ var createCmd = &cobra.Command{
 
 		dockerComposePath := pkg.GetDockerComposePath()
 		dockerComposeArgs := []string{
-			dockerComposePath,
 			"up",
 			"-d",
 		}
-		return syscall.Exec(dockerComposePath, dockerComposeArgs, os.Environ())
+		return pkg.Execute(dockerComposePath, dockerComposeArgs)
 
 	},
 }
