@@ -23,16 +23,11 @@ var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initializes infra required for pekka to run",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		cwd, err := os.Getwd()
-		if err != nil {
-			pkg.FatalF("An error occurred:\n %s \n", err.Error())
-		}
-
-		pekkaTraefikPath := filepath.Join(cwd, "pekka-traefik")
-		_, err = os.Stat(pekkaTraefikPath)
+		pekkaTraefikPath := pkg.GetPekkaTraefikPath()
+		_, err := os.Stat(pekkaTraefikPath)
 		if !os.IsNotExist(err) {
 			if !force {
-				pkg.FatalF("Pekka is already initialized")
+				pkg.FatalF("Pekka is already initialized \n")
 			} else {
 				err = os.RemoveAll(pekkaTraefikPath)
 				if err != nil {
