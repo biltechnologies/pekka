@@ -10,8 +10,8 @@ func init() {
 	WordPressFiles["docker-compose.yml"] = `
 version: "2"
 services:
-  mysql:
-    image: mysql
+  mariadb:
+    image: mariadb
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: {{ .MySQLRootPassword }}
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./wp-content:/var/www/html/wp-content
     depends_on:
-      - mysql
+      - mariadb
     networks:
       - server
       - default
