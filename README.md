@@ -12,7 +12,7 @@ docker and docker-compose should be installed and configured such that the user 
    This creates the required files in the current directory.
 
     ```
-    $ ./pekka init                     
+    $ pekka init                     
     Enter traefik dashboard URL: <traefik dashboard URL>
     Enter let's encrypt email: <acme email>
     Creating network "pekkatraefik_webgateway" with driver "bridge"
@@ -27,7 +27,7 @@ docker and docker-compose should be installed and configured such that the user 
 2. Create a wordpress deployment using the ``create`` command
 
     ```
-    $ ./pekka create toys
+    $ pekka create toys
     Enter domain name: example.com
     Add entry for www.example.com? y
     Creating network "toys_default" with the default driver
@@ -63,3 +63,17 @@ docker and docker-compose should be installed and configured such that the user 
     ```
 
     Pekka uses a custom wordpress docker image image ``nithinbose/wordpress``hosted on docker hub.
+
+3. Remove a wordpress deployment using the ``remove`` command
+
+    ```
+    $ pekka remove toys
+    Stopping toys_wordpress_1 ... done
+    Stopping toys_mariadb_1 ... done
+    Deployment stopped
+    Going to remove toys_wordpress_1, toys_mariadb_1
+    Removing toys_wordpress_1 ... done
+    Removing toys_mariadb_1 ... done
+    Removing files...
+    Deployment removed
+    ```
