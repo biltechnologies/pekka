@@ -45,10 +45,6 @@ var initCmd = &cobra.Command{
 			pkg.FatalF("An error occurred:\n %s \n", err.Error())
 		}
 
-		if err != nil {
-			pkg.FatalF("An error occurred:\n %s \n", err.Error())
-		}
-
 		for fileName, template := range templates.TraefikFiles {
 			fPath := filepath.Join(pekkaTraefikPath, fileName)
 			pkg.CreateFile(fPath, template, traefikFilesData)

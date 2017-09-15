@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"html/template"
 	"os"
-	"path/filepath"
 )
 
 //FatalF is a convinience function to print erros and exit
@@ -29,13 +28,4 @@ func CreateFile(filePath string, fileTemplate string, values interface{}) {
 	if err != nil {
 		FatalF("An error occurred:\n %s \n", err.Error())
 	}
-}
-
-func GetPekkaTraefikPath() string {
-	cwd, err := os.Getwd()
-	if err != nil {
-		FatalF("An error occurred:\n %s \n", err.Error())
-	}
-
-	return filepath.Join(cwd, "pekka-traefik")
 }
