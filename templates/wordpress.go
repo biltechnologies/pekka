@@ -22,6 +22,7 @@ services:
     image: nithinbose/wordpress
     restart: unless-stopped
     environment:
+      WORDPRESS_DB_HOST: mariadb
       WORDPRESS_DB_PASSWORD: {{ .MySQLRootPassword }}
       WORDPRESS_TABLE_PREFIX: {{ .WPTablePrefix }}
     volumes:
