@@ -26,7 +26,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./traefik.toml:/traefik.toml
-      - ./acme.json:/acme.json
 
 networks:
   webgateway:
@@ -66,8 +65,6 @@ watch = true
 exposedbydefault = false
 `
 
-	//acme.json file
-	TraefikFiles["acme.json"] = ""
 }
 
 //TraefikFilesData is the data that is required for the templates to render
