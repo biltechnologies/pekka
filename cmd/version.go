@@ -9,7 +9,7 @@ import (
 var version string
 
 func init() {
-	version = "0.4.1"
+	version = "0.5"
 	RootCmd.AddCommand(versionCmd)
 }
 

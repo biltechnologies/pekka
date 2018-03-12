@@ -57,6 +57,8 @@ storage = "acme.json"
 entryPoint = "https"
 onDemand = false
 OnHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
