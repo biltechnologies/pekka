@@ -36,12 +36,12 @@ services:
       - 'traefik.enable=true'
       - 'traefik.backend={{ .TraefikBackend }}'
       - 'traefik.frontend.rule=Host:{{ .WPHosts }}'
-      - 'traefik.docker.network=pekkatraefik_webgateway'
+      - 'traefik.docker.network=pekka-traefik_webgateway'
 
 networks:
   server:
     external:
-      name: pekkatraefik_webgateway
+      name: pekka-traefik_webgateway
 `
 }
 
